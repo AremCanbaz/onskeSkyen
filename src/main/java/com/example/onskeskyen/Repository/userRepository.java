@@ -11,9 +11,13 @@ import java.util.List;
 public class userRepository {
         @Value("AC25")
         private String databaseURL;
-        @Value(jdbc:mysql://onskeskyen.mysql.database.azure.com:3306/onskeskyen")
+        @Value("jdbc:mysql://onskeskyen.mysql.database.azure.com:3306/onskeskyen")
         private String username;
         @Value("Konto2500!")
         private String password;
+
+       public void createUser(){
+               String createSQL = "insert into users"
+       }
 
 }
