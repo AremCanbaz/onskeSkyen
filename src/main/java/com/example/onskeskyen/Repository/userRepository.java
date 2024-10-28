@@ -17,7 +17,8 @@ public class userRepository {
         private String password;
 
        public void createUser(){
-               String createSQL = "insert into users"
+               String createSQL = "insert into (Username, PasswordHash) values (?,?)";
+
        }
 
 }
