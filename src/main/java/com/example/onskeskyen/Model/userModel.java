@@ -1,21 +1,20 @@
 package com.example.onskeskyen.Model;
 
+import java.time.LocalDate;
+
 public class userModel {
     private int userid;
-    private String name;
-    private int age;
-    private String gender;
-
+    private String username;
     private String email;
     private String password;
+    private LocalDate createdAt;
 
-    public userModel(int id, String name, int age, String gender, String email, String password) {
+    public userModel(int id, String username, String email, String password, LocalDate createdAt) {
         this.userid = id;
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
+        this.username = username;
         this.email = email;
         this.password = password;
+        this.createdAt = createdAt;
     }
     public int getId() {
         return userid;
@@ -23,23 +22,11 @@ public class userModel {
     public void setId(int id) {
         this.userid = id;
     }
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public int getAge() {
-        return age;
-    }
-    public void setAge(int age) {
-        this.age = age;
-    }
-    public String getGender() {
-        return gender;
-    }
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setUsername(String username) {
+        this.username = username;
     }
     public String getEmail() {
         return email;
@@ -49,5 +36,14 @@ public class userModel {
     }
     public String getPassword() {
         return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
     }
 }
