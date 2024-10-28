@@ -9,6 +9,12 @@ public class userModel {
     private String password;
     private LocalDate createdAt;
 
+    public userModel(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
     public userModel(int id, String username, String email, String password, LocalDate createdAt) {
         this.userid = id;
         this.username = username;
