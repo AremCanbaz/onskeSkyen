@@ -1,6 +1,6 @@
 package com.example.onskeskyen.Controller;
 
-import com.example.onskeskyen.Model.userModel;
+import com.example.onskeskyen.Model.UserModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +15,7 @@ public class wishListController {
     }
 
     @PostMapping("/login")
-    public String processLoginForm(userModel userModel) {
+    public String processLoginForm(UserModel userModel) {
         return "";
     }
 }
