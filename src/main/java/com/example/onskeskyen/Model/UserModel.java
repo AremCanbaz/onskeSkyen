@@ -4,24 +4,12 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "users")
-public class UserModel {  // Skift til stor forbogstav
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "userID")
+public class UserModel {
     private Long userid;
-    @Column(name = "Username")
     private String username;
-    @Column(name = "Email")
     private String email;
-    @Column(name = "PasswordHash")
     private String password;
-    @Column(name = "CreatedAt")
     private LocalDate createdAt;
-
-    public UserModel() {}
 
     public UserModel(String username, String email, String password) {
         this.username = username;

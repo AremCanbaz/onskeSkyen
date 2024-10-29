@@ -7,6 +7,8 @@ public class wishItemModel {
     int price;
     int quantity;
     String link;
+
+
     public wishItemModel(String name, String description, int wishitemID, int price, int quantity) {
         this.name = name;
         this.description = description;
