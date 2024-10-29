@@ -1,6 +1,5 @@
 package com.example.onskeskyen.Model;
 
-import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
