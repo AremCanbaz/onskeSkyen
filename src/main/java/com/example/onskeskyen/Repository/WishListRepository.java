@@ -1,6 +1,6 @@
 package com.example.onskeskyen.Repository;
 
-import com.example.onskeskyen.Model.wishListModel;
+import com.example.onskeskyen.Model.WishListModel;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
@@ -18,9 +18,9 @@ public class WishListRepository {
     @Value("${spring.datasource.password}")
     String password;
 
-    public List<wishListModel> getAllWishList() {
+    public List<WishListModel> getAllWishList() {
         String sql = "SELECT wishlist_name, created_at FROM wishlists";
-        List<wishListModel> wishListModelArrayList = new ArrayList<>();
+        List<WishListModel> wishListModelArrayList = new ArrayList<>();
 
         try (Connection connection = DriverManager.getConnection(databaseURLM, userName, password)) {
             Statement statement = connection.createStatement();
@@ -31,7 +31,7 @@ public class WishListRepository {
                 Date date = resultSet.getDate("created_at");
 
                 // Opretter en ny wishListModel med name og date
-                wishListModel wishList = new wishListModel(name, date);
+                WishListModel wishList = new WishListModel(name, date);
                 wishListModelArrayList.add(wishList);
             }
         } catch (SQLException throwables) {

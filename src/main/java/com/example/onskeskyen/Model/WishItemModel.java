@@ -1,6 +1,6 @@
 package com.example.onskeskyen.Model;
 
-public class wishItemModel {
+public class WishItemModel {
     String name;
     String description;
     int wishitemID;
@@ -9,14 +9,14 @@ public class wishItemModel {
     String link;
 
 
-    public wishItemModel(String name, String description, int wishitemID, int price, int quantity) {
+    public WishItemModel(String name, String description, int wishitemID, int price, int quantity) {
         this.name = name;
         this.description = description;
         this.wishitemID = wishitemID;
         this.price = price;
         this.quantity = quantity;
     }
-    public wishItemModel(String name, String description, int wishitemID, int price, int quantity, String link) {
+    public WishItemModel(String name, String description, int wishitemID, int price, int quantity, String link) {
         this.name = name;
         this.description = description;
         this.wishitemID = wishitemID;

@@ -1,6 +1,6 @@
 package com.example.onskeskyen.Service;
 
-import com.example.onskeskyen.Model.wishListModel;
+import com.example.onskeskyen.Model.WishListModel;
 import com.example.onskeskyen.Repository.WishListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ public class WishListService {
         this.wishListRepository = wishListRepository;
     }
 
-    public List<wishListModel> getAllWishLists() {
+    public List<WishListModel> getAllWishLists() {
         return wishListRepository.getAllWishList();
     }
 }

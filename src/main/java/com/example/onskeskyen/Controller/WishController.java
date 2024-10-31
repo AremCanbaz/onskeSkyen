@@ -1,4 +1,4 @@
 package com.example.onskeskyen.Controller;
 
-public class wishController {
+public class WishController {
 }

@@ -3,19 +3,19 @@ package com.example.onskeskyen.Model;
 import java.util.Date;
 import java.util.List;
 
-public class wishListModel {
+public class WishListModel {
     private String wishlistName;
     private int wishlistId;
-    private wishItemModel wishItemModel;
+    private WishItemModel wishItemModel;
     private Date wishlistDate;
-    private List<wishItemModel> wishItemModelList;
+    private List<WishItemModel> wishItemModelList;
 
-    public wishListModel(String wishlistName, Date wishlistDate) {
+    public WishListModel(String wishlistName, Date wishlistDate) {
         this.wishlistName = wishlistName;
         this.wishlistDate = wishlistDate;
     }
 
-    public wishListModel(String wishlistName, int wishlistId ,List<wishItemModel> wishItemModelList) {
+    public WishListModel(String wishlistName, int wishlistId , List<WishItemModel> wishItemModelList) {
         this.wishlistName = wishlistName;
         this.wishlistId = wishlistId;
         this.wishItemModelList = wishItemModelList;
@@ -32,16 +32,16 @@ public class wishListModel {
     public void setWishlistId(int wishlistId) {
         this.wishlistId = wishlistId;
     }
-    public wishItemModel getWishItemModel() {
+    public WishItemModel getWishItemModel() {
         return wishItemModel;
     }
-    public void setWishItemModel(wishItemModel wishItemModel) {
+    public void setWishItemModel(WishItemModel wishItemModel) {
         this.wishItemModel = wishItemModel;
     }
-    public List<wishItemModel> getWishItemModelList() {
+    public List<WishItemModel> getWishItemModelList() {
         return wishItemModelList;
     }
-    public void setWishItemModelList(List<wishItemModel> wishItemModelList) {
+    public void setWishItemModelList(List<WishItemModel> wishItemModelList) {
         this.wishItemModelList = wishItemModelList;
     }
     public Date getWishlistDate() {
