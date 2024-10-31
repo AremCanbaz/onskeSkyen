@@ -13,7 +13,10 @@ public class UserController {  // Skift til stor forbogstav
 
     @Autowired
     private UserService userService;  // Autowire UserService
-
+    @GetMapping()
+    public String showlogin() {
+    return "login";
+    }
     @GetMapping("/login")
     public String showLoginForm() {
         return "login";
