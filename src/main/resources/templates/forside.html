@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ønskeskyen Forside</title>
+    <link rel="stylesheet" th:href="@{/forside.css}">
+</head>
+<body>
+
+<!-- Header Sektion -->
+<header>
+    <h1>Ønskeskyen</h1>
+    <p>Din personlige platform til deling af ønskelister</p>
+</header>
+
+<!-- Main Content Sektion -->
+<main>
+    <h2>Dine Ønskelister</h2>
+
+    <!-- Ønskelister Container -->
+    <div class="wishlist-container">
+        <!-- Thymeleaf Loop til at vise ønskelister -->
+        <div th:each="wishlist : ${wishlist}" class="wishlist-item">
+            <h3 class="wishlist-title" th:text="${wishlist.wishlistName}">Ønskeliste Navn</h3>
+            <p th:text="'Dato: ' + ${#dates.format(wishlist.wishlistDate, 'dd-MM-yyyy')}">Beskrivelse af ønskeliste</p>
+        </div>
+    </div>
+
+    <!-- Knappen til at oprette ny ønskeliste -->
+    <a th:href="@{/create-wishlist}" class="button">Opret Ønskeliste</a>
+</main>
+
+</body>
+</html>
