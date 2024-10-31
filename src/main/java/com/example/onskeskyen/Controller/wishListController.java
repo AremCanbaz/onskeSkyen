@@ -9,10 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class wishListController {
 
-    @GetMapping("/{id}/index")
+    @GetMapping("/forside")
     public String showLoginForm(Model model) {
-        return "login";
+        model.addAttribute("wishlist", "")
+
+        return "forside";
     }
+
 
     @PostMapping("/login")
     public String processLoginForm(UserModel userModel) {

@@ -19,7 +19,7 @@ public class UserController {  // Skift til stor forbogstav
         return "login";
     }
 
-    @PostMapping("/loginSucc")
+    @PostMapping("/loginSucces")
     public String processLoginForm(UserModel userModel) {
         return ""; // Implementer login-logik her
     }

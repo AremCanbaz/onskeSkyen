@@ -24,7 +24,7 @@ public class UserRepository {
 
 
     public void addUser(UserModel user) {
-        String useraddSQL = "INSERT INTO users(username, PasswordHash, email) VALUES (?,?,?)";
+        String useraddSQL = "INSERT INTO users(username, password, email) VALUES (?,?,?)";
         try(Connection connection = DriverManager.getConnection(databaseURLM,userName,password)){
             PreparedStatement preparedStatement = connection.prepareStatement(useraddSQL);
             preparedStatement.setString(1,user.getUsername());
