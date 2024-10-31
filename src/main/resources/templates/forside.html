@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Ønskeskyen Forside</title>
     <link rel="stylesheet" th:href="@{/forside.css}">
-
 </head>
 <body>
 
@@ -21,9 +20,9 @@
     <!-- Ønskelister Container -->
     <div class="wishlist-container">
         <!-- Thymeleaf Loop til at vise ønskelister -->
-        <div th:each="wishlist : ${wishlists}" class="wishlist-item">
-            <h3 class="wishlist-title" th:text="${wishlist.name}">Ønskeliste Navn</h3>
-            <p th:text="${wishlist.description}">Beskrivelse af ønskeliste</p>
+        <div th:each="wishlist : ${wishlist}" class="wishlist-item">
+            <h3 class="wishlist-title" th:text="${wishlist.wishlistName}">Ønskeliste Navn</h3>
+            <p th:text="'Dato: ' + ${#dates.format(wishlist.wishlistDate, 'dd-MM-yyyy')}">Beskrivelse af ønskeliste</p>
         </div>
     </div>
 
