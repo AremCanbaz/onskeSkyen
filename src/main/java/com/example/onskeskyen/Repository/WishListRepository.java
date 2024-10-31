@@ -18,27 +18,35 @@ public class WishListRepository {
     @Value("${spring.datasource.password}")
     String password;
 
-    public List<WishListModel> getAllWishList() {
-        String sql = "SELECT wishlist_name, created_at FROM wishlists";
-        List<WishListModel> wishListModelArrayList = new ArrayList<>();
+    public List<WishListModel> findWishlistsByUserId(long userId) {
+        String sql = "SELECT * FROM wishlists WHERE user_id = ?";
+        List<WishListModel> wishlists = new ArrayList<>();
 
         try (Connection connection = DriverManager.getConnection(databaseURLM, userName, password)) {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setLong(1, userId);
 
+            ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                String name = resultSet.getString("wishlist_name");
-                Date date = resultSet.getDate("created_at");
+                WishListModel wishlist = new WishListModel();
+                wishlist.setWishlistId(resultSet.getInt("wishlist_id")); // eller "wishlist_id" afhængigt af kolonnenavnet
+                wishlist.setWishlistName(resultSet.getString("wishlist_name"));
 
-                // Opretter en ny wishListModel med name og date
-                WishListModel wishList = new WishListModel(name, date);
-                wishListModelArrayList.add(wishList);
+                // Tjek for null før konvertering
+                java.sql.Date sqlDate = resultSet.getDate("created_at");
+                if (sqlDate != null) {
+                    wishlist.setWishlistDate(sqlDate.toLocalDate());
+                } else {
+                    wishlist.setWishlistDate(null); // Eller håndter som ønsket
+                }
+
+                wishlist.setUserId(resultSet.getInt("user_id"));
+                wishlists.add(wishlist);
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
-        return wishListModelArrayList;  // Returnerer listen, selvom den er tom i tilfælde af fejl
+        return wishlists;
     }
 
 

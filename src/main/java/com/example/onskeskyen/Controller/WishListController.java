@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -19,17 +20,12 @@ public class WishListController {
         this.wishListService = wishListService;
     }
 
-    @GetMapping("/forside")
-    public String showLoginForm(Model model) {
-        List<WishListModel> wishList = wishListService.getAllWishLists();
-        model.addAttribute("wishlist", wishList);
-
-        return "forside";
+    @GetMapping("/wishlist")
+    public String showWishlist(@RequestParam("userId") long userId,  Model model) {
+        List<WishListModel> wishlists = wishListService.getWishlistsByUserId(userId);
+        model.addAttribute("wishlists", wishlists);  // Tilføj ønskelisterne til modellen
+        model.addAttribute("userId", userId);  // Tilføj userId til modellen
+        return "wishlist";  // Vis wishlist-siden
     }
 
-
-    @PostMapping("/login")
-    public String processLoginForm(UserModel userModel) {
-        return "";
-    }
 }

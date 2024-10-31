@@ -17,4 +17,7 @@ public class UserService {
     public void saveUser(UserModel user) {
         userRepository.addUser(user);
     }
+    public UserModel authenticateUser(String username, String password) {
+        return userRepository.findUserByUsernameAndPassword(username, password);
+    }
 }

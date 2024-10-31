@@ -7,14 +7,14 @@
     <link rel="stylesheet" th:href="@{/login.css}">
 </head>
 <body>
-<form action="/login" method="post" th:object="${userModel}">
+<form action="/loginSucces" method="post">
     <h1>Login her!</h1>
     <div>
         <label for="brugernavn">Brugernavn</label>
-        <input type="text" id="brugernavn" name="brugernavn" required>
+        <input type="text" id="brugernavn" name="username" required>
         <br>
         <label for="adgangskode">Password</label>
-        <input type="password" id="adgangskode" name="adgangskode" required>
+        <input type="password" id="adgangskode" name="password" required>
         <br>
         <button type="submit">Log ind</button>
     </div>

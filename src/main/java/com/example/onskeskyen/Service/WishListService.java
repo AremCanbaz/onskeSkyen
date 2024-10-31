@@ -16,7 +16,8 @@ public class WishListService {
         this.wishListRepository = wishListRepository;
     }
 
-    public List<WishListModel> getAllWishLists() {
-        return wishListRepository.getAllWishList();
+
+    public List<WishListModel> getWishlistsByUserId(long userId) {
+        return wishListRepository.findWishlistsByUserId(userId);
     }
 }

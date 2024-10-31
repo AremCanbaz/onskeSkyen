@@ -16,13 +16,13 @@
 <!-- Main Content Sektion -->
 <main>
     <h2>Dine Ønskelister</h2>
+    <p>Bruger ID: <span th:text="${userId}"></span></p> <!-- Vis brugerens ID -->
 
     <!-- Ønskelister Container -->
     <div class="wishlist-container">
         <!-- Thymeleaf Loop til at vise ønskelister -->
-        <div th:each="wishlist : ${wishlist}" class="wishlist-item">
+        <div th:each="wishlist : ${wishlists}" class="wishlist-item">
             <h3 class="wishlist-title" th:text="${wishlist.wishlistName}">Ønskeliste Navn</h3>
-            <p th:text="'Dato: ' + ${#dates.format(wishlist.wishlistDate, 'dd-MM-yyyy')}">Beskrivelse af ønskeliste</p>
         </div>
     </div>
 

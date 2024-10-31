@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+
 
 @Controller
 public class UserController {  // Skift til stor forbogstav
@@ -23,10 +25,14 @@ public class UserController {  // Skift til stor forbogstav
     }
 
     @PostMapping("/loginSucces")
-    public String processLoginForm(UserModel userModel) {
-        return ""; // Implementer login-logik her
+    public String processLoginForm(@RequestParam String username, @RequestParam String password, Model model) {
+        UserModel user = userService.authenticateUser(username, password);
+        if (user != null) {
+            return "redirect:/wishlist?userId=" + user.getId();  // Omdirigér til forsiden med userId som URL-parameter
+        }
+        model.addAttribute("error", "Invalid username or password");  // Tilføj fejlmeddelelse til modellen
+        return "login";  // Send brugeren tilbage til login-siden ved fejl
     }
-
     @GetMapping("/createusersite")
     public String showCreateUserForm() {
         return "createUser";

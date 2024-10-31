@@ -16,6 +16,10 @@ public class UserModel {
         this.password = password;
     }
 
+    public UserModel() {
+
+    }
+
     public Long getId() {
         return userid;
     }
