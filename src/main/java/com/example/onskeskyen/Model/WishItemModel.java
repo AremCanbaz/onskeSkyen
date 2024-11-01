@@ -24,6 +24,11 @@ public class WishItemModel {
         this.quantity = quantity;
         this.link = link;
     }
+
+    public WishItemModel() {
+
+    }
+
     public String getName() {
         return name;
     }
@@ -56,5 +61,8 @@ public class WishItemModel {
     }
     public String getLink() {
         return link;
+    }
+    public void setLink(String link) {
+        this.link = link;
     }
 }

@@ -1,0 +1,24 @@
+
+.item-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.item-box {
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 250px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+.item-box h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+.item-box p {
+    margin: 5px 0;
+}
+.item-box a {
+    color: #3498db;
+    text-decoration: none;
+}

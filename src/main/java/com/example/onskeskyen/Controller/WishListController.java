@@ -25,7 +25,9 @@ public class WishListController {
         List<WishListModel> wishlists = wishListService.getWishlistsByUserId(userId);
         model.addAttribute("wishlists", wishlists);  // Tilføj ønskelisterne til modellen
         model.addAttribute("userId", userId);  // Tilføj userId til modellen
-        return "wishlist";  // Vis wishlist-siden
+        return "wishlistitems";  // Vis wishlist-siden
     }
+
+
 
 }
