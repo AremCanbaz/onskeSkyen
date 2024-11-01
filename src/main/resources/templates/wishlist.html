@@ -24,12 +24,18 @@
              th:onclick="'window.location.href=\'/wishlistitems?listID=' + ${wishlist.wishlistId} + '\';'">
             <span th:text="${wishlist.wishlistName}" class="wishlist-title"></span>
             <!-- Delete Button -->
-            <a th:href="@{/delete-wishlist(wishlistId=${wishlist.wishlistId})}" class="delete-button">Slet</a>
+            <form th:action="@{/delete}" method="post" style="display:inline;">
+                <input type="hidden" name="wishlist_id" th:value="${wishlist.wishlistId}" />
+                <input type="hidden" name="userId" th:value="${userId}" /> <!-- Send userId med i slet-requesten -->
+                <button type="submit" class="delete-button">Slet</button>
+            </form>
+
         </div>
     </div>
 
     <!-- Create New Wishlist Button -->
-    <a th:href="@{/create-wishlist}" class="button">Opret Ønskeliste</a>
+    <a th:href="@{/createWishlist(userId=${userId})}" class="button">Opret Ønskeliste</a>
+
 </main>
 
 </body>

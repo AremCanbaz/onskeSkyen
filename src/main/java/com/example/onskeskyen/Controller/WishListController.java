@@ -27,6 +27,23 @@ public class WishListController {
         model.addAttribute("userId", userId);  // Tilføj userId til modellen
         return "wishlist";  // Vis wishlist-siden
     }
+    @GetMapping("/createWishlist")
+    public String showCreateWishlistForm(@RequestParam("userId") long userId, Model model) {
+        model.addAttribute("userId", userId);
+        return "createWishlist";
+    }
+
+    @PostMapping("/createWishlist")
+    public String createWishlist(@RequestParam("wishlistName") String wishlistName, @RequestParam("userId") long userId) {
+        wishListService.createWishlist(wishlistName, userId);
+        return "redirect:/wishlist?userId=" + userId;
+    }
+
+    @PostMapping("/delete")
+    public String deleteWishlist(@RequestParam("wishlist_id") long wishlist_id, @RequestParam("userId") long userId) {
+        wishListService.deleteWishlist(wishlist_id);
+        return "redirect:/wishlist?userId=" + userId;
+    }
 
 
 }

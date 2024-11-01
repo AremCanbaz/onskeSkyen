@@ -20,4 +20,12 @@ public class WishListService {
     public List<WishListModel> getWishlistsByUserId(long userId) {
         return wishListRepository.findWishlistsByUserId(userId);
     }
+    public void deleteWishlist(long wishlist_Id) {
+        wishListRepository.deleteWishlistsBywishlistId(wishlist_Id);
+    }
+
+    public void createWishlist(String wishlistName, long userId) {
+        wishListRepository.createWishlist(wishlistName, userId);
+    }
+
 }

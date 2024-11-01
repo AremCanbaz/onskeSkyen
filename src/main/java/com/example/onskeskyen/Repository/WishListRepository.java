@@ -49,6 +49,32 @@ public class WishListRepository {
         return wishlists;
     }
 
+    public void deleteWishlistsBywishlistId(long wishlist_id) {
+        String sqlDeletelist = "DELETE FROM wishlists WHERE wishlist_id = ?";
+
+        try (Connection connection = DriverManager.getConnection(databaseURLM, userName, password)){
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlDeletelist);
+            preparedStatement.setLong(1, wishlist_id);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void createWishlist(String wishlistName, long userId) {
+        String sqlCreateList = "INSERT INTO wishlists(wishlist_name, user_id) VALUES (?, ?)";
+
+        try (Connection connection = DriverManager.getConnection(databaseURLM, userName, password)) {
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlCreateList);
+            preparedStatement.setString(1, wishlistName);
+            preparedStatement.setLong(2, userId);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }
