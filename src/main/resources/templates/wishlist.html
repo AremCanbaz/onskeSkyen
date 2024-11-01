@@ -7,26 +7,28 @@
 </head>
 <body>
 
-<!-- Header Sektion -->
+<!-- Header Section -->
 <header>
     <h1>Ønskeskyen</h1>
     <p>Din personlige platform til deling af ønskelister</p>
 </header>
 
-<!-- Main Content Sektion -->
+<!-- Main Content Section -->
 <main>
     <h2>Dine Ønskelister</h2>
-    <p>Bruger ID: <span th:text="${userId}"></span></p> <!-- Vis brugerens ID -->
+    <p>Bruger ID: <span th:text="${userId}"></span></p>
 
-    <!-- Ønskelister Container -->
+    <!-- Wishlist Container -->
     <div class="wishlist-container">
-        <!-- Thymeleaf Loop til at vise ønskelister -->
-        <div th:each="wishlist : ${wishlists}" class="wishlist-item">
-            <h3 class="wishlist-title" th:text="${wishlist.wishlistName}">Ønskeliste Navn</h3>
+        <div th:each="wishlist : ${wishlists}" class="wishlist-item"
+             th:onclick="'window.location.href=\'/wishlistitems?listID=' + ${wishlist.wishlistId} + '\';'">
+            <span th:text="${wishlist.wishlistName}" class="wishlist-title"></span>
+            <!-- Delete Button -->
+            <a th:href="@{/delete-wishlist(wishlistId=${wishlist.wishlistId})}" class="delete-button">Slet</a>
         </div>
     </div>
 
-    <!-- Knappen til at oprette ny ønskeliste -->
+    <!-- Create New Wishlist Button -->
     <a th:href="@{/create-wishlist}" class="button">Opret Ønskeliste</a>
 </main>
 

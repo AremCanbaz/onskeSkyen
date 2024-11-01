@@ -29,7 +29,7 @@ public class WishItemRepository {
                 WishItemModel wishItemList = new WishItemModel();
                 wishItemList.setWishitemID(resultSet.getInt("wishitem_ID"));
                 wishItemList.setName(resultSet.getString("wishitem_name"));
-                wishItemList.setDescription(resultSet.getString("wishitem_desc"));
+                wishItemList.setDescription(resultSet.getString("wishlistitem_desc"));
                 wishItemList.setPrice(resultSet.getInt("wishitem_price"));
                 wishItemList.setLink(resultSet.getString("wish_item_link"));
                 wishitemsList.add(wishItemList);

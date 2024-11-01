@@ -1,24 +1,83 @@
-
-.item-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-.item-box {
-    border: 1px solid #ddd;
-    padding: 15px;
-    width: 250px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-}
-.item-box h3 {
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
-    font-size: 1.2em;
+    padding: 0;
+    background-color: #f5f7fa;
+    color: #333;
 }
-.item-box p {
-    margin: 5px 0;
+
+/* Header Styling */
+h1 {
+    color: #007BFF;
+    text-align: center;
+    font-size: 2.2em;
+    margin-top: 1em;
 }
-.item-box a {
-    color: #3498db;
+
+/* List Container Styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1em;
+}
+
+/* Wishlist Item Styling */
+li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+li:hover {
+    transform: translateY(-5px);
+}
+
+/* Item Information Styling */
+li p {
+    margin: 8px 0;
+}
+
+li p span, li a {
+    font-weight: bold;
+    color: #007BFF;
     text-decoration: none;
+}
+
+li a:hover {
+    text-decoration: underline;
+}
+
+/* Price and Quantity Styling */
+li p:nth-child(3), li p:nth-child(4) {
+    color: #333;
+    font-weight: normal;
+}
+
+/* Link Button Style */
+a.button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007BFF;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    text-align: center;
+}
+
+a.button:hover {
+    background-color: #0056b3;
 }

@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/index.css}">
     <title>Wishlist Items</title>
+    <link rel="stylesheet" th:href="@{/index.css}">
 </head>
-<style>
-
-</style>
 <body>
-
-<h1>Wishlist Items</h1>
-
-<div class="item-container">
-    <!-- Iterate through the wishlist items -->
-    <div class="item-box" th:each="item : ${wishListItems}">
-        <h3 th:text="${item.name}">Item Name</h3>
-        <p th:text="${item.description}">Description of the item</p>
-        <p>Price: <span th:text="${item.price}">0</span> USD</p>
-        <a th:href="${item.link}" target="_blank">View Item</a>
-    </div>
-</div>
-
+<h1>Items in Wishlist <span th:text="${listID}"></span></h1>
+<ul>
+    <li th:each="item : ${wishListItems}">
+        <p>Name: <span th:text="${item.name}"></span></p>
+        <p>Description: <span th:text="${item.description}"></span></p>
+        <p>Price: <span th:text="${item.price}"></span></p>
+        <p>Link: <a th:href="${item.link}" th:text="${item.link}"></a></p>
+    </li>
+</ul>
 </body>
 </html>

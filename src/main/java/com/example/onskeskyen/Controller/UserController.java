@@ -30,7 +30,6 @@ public class UserController {  // Skift til stor forbogstav
         if (user != null) {
             return "redirect:/wishlist?userId=" + user.getId();  // Omdirigér til forsiden med userId som URL-parameter
         }
-        model.addAttribute("error", "Invalid username or password");  // Tilføj fejlmeddelelse til modellen
         return "login";  // Send brugeren tilbage til login-siden ved fejl
     }
     @GetMapping("/createusersite")

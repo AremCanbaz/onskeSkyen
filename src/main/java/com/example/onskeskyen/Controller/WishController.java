@@ -20,11 +20,11 @@ public class WishController {
         this.wishListItemsService = wishListItemsService;
     }
     @GetMapping("/wishlistitems")
-    public String showWishlist(@RequestParam("listID") int listID, Model model) {
-        List<WishItemModel> wishlists = wishListItemsService.getWishItemsbyListID(listID);
-        model.addAttribute("wishListItems", wishlists);  // Update to match Thymeleaf template
-        model.addAttribute("userId", listID);  // Adding userId to model if needed
-        return "wishlistItems";  // Returns the "wishlist" view
+    public String showWishlistItems(@RequestParam("listID") int listID, Model model) {
+        List<WishItemModel> wishItems = wishListItemsService.getWishItemsbyListID(listID);
+        model.addAttribute("wishListItems", wishItems);
+        model.addAttribute("listID", listID);
+        return "wishlistItems";
     }
 
 }
