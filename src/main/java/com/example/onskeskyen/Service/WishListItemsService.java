@@ -19,4 +19,9 @@ public class WishListItemsService {
     public List<WishItemModel> getWishItemsbyListID(int listID) {
         return wishItemRepository.findWishItemsByWishlistId(listID);
     }
+
+    public void createWishlistItem(String name, String description, double price, int listID, String link) {
+        wishItemRepository.createWishlistItem(name, description, price, (long) listID, link);
+    }
+
 }

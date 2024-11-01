@@ -65,4 +65,13 @@ public class WishItemModel {
     public void setLink(String link) {
         this.link = link;
     }
+
+    public void setItemId(long itemId) {
+    }
+
+    public void setItemName(String itemName) {
+    }
+
+    public void setWishlistId(long wishlistId) {
+    }
 }

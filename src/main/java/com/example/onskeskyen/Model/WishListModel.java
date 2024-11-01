@@ -63,4 +63,6 @@ public class WishListModel {
     public void setUserId(int userId) {
         this.userId = userId;
     }
+
+
 }

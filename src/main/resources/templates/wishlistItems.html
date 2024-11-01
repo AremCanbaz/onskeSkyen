@@ -14,5 +14,9 @@
         <p>Link: <a th:href="${item.link}" th:text="${item.link}"></a></p>
     </li>
 </ul>
+
+<!-- Opret Ønske Button -->
+<a th:href="@{/createWishlistItem(listID=${listID})}" class="button">Opret Ønske</a>
+
 </body>
 </html>
