@@ -6,6 +6,13 @@
 </head>
 <body>
 <h1>Items in Wishlist <span th:text="${listID}"></span></h1>
+
+<!-- Opret Ønske Button (Øverst og centreret) -->
+<div class="button-container">
+    <a th:href="@{/createWishlistItem(listID=${listID})}" class="button">Opret Ønske</a>
+    <a th:href="@{/funktion ikke lavet endny}" class="button">Del Ønskeliste</a>
+</div>
+
 <ul>
     <li th:each="item : ${wishListItems}">
         <p>Name: <span th:text="${item.name}"></span></p>
@@ -14,9 +21,5 @@
         <p>Link: <a th:href="${item.link}" th:text="${item.link}"></a></p>
     </li>
 </ul>
-
-<!-- Opret Ønske Button -->
-<a th:href="@{/createWishlistItem(listID=${listID})}" class="button">Opret Ønske</a>
-
 </body>
 </html>
