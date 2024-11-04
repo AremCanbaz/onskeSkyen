@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -25,6 +26,22 @@ public class WishController {
         model.addAttribute("wishListItems", wishItems);
         model.addAttribute("listID", listID);
         return "wishlistItems";
+    }
+
+    @GetMapping("/createWishlistItem")
+    public String showCreateWishlistItemPage(@RequestParam("listID") int listID, Model model) {
+        model.addAttribute("listID", listID);
+        return "createWishlistItem";
+    }
+
+    @PostMapping("/addWishlistItem")
+    public String addWishlistItem(@RequestParam("listID") int listID,
+                                  @RequestParam("name") String name,
+                                  @RequestParam("description") String description,
+                                  @RequestParam("price") double price,
+                                  @RequestParam(value = "link", required = false) String link) {
+        wishListItemsService.createWishlistItem(name, description, price, listID, link);
+        return "redirect:/wishlistitems?listID=" + listID;
     }
 
 }

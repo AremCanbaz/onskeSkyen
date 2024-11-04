@@ -40,4 +40,22 @@ public class WishItemRepository {
         return wishitemsList;
 
     }
+    public void createWishlistItem(String itemName, String description, Double price, Long wishlistId, String link) {
+        String sqlCreateItem = "INSERT INTO wishlistitems (wishitem_name,wishlistitem_desc,wishitem_price, wishlist_ID, wish_item_link) VALUES (?, ?, ?, ?, ?)";
+
+        try (Connection connection = DriverManager.getConnection(databaseURLM, userName, password)) {
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlCreateItem);
+            preparedStatement.setString(1, itemName);
+            preparedStatement.setString(2, description);
+            preparedStatement.setDouble(3, price);
+            preparedStatement.setLong(4, wishlistId);
+            preparedStatement.setString(5, link);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
