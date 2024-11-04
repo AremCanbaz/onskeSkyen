@@ -1,7 +1,6 @@
 package com.example.onskeskyen.Repository;
 
 import com.example.onskeskyen.Model.WishItemModel;
-import com.example.onskeskyen.Model.WishListModel;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
