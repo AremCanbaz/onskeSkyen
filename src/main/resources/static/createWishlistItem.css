@@ -16,6 +16,34 @@ h1 {
     margin-top: 20px;
 }
 
+/* Button Container Styling */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+/* Button Styling for Share and Create Buttons */
+.button-container .button {
+    padding: 12px 28px;
+    background-color: #007BFF;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+    cursor: pointer;
+}
+
+.button-container .button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+}
+
 /* Form Container */
 form {
     max-width: 600px;
@@ -85,4 +113,41 @@ form button[type="submit"]:hover {
     background-color: #0056b3;
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* Delete Button Styling */
+.delete-button {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.delete-button:hover {
+    background-color: #ff1a1a;
+    transform: translateY(-3px);
+}
+
+/* List Item Styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }

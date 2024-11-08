@@ -24,4 +24,9 @@ public class WishListItemsService {
         wishItemRepository.createWishlistItem(name, description, price, (long) listID, link);
     }
 
+    public void deleteWishItem(long wishitemID) {
+        wishItemRepository.deleteWishItemById(wishitemID);
+    }
+
+
 }

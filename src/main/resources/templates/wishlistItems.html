@@ -7,10 +7,10 @@
 <body>
 <h1>Items in Wishlist <span th:text="${listID}"></span></h1>
 
-<!-- Opret Ønske Button (Øverst og centreret) -->
+<!-- Opret Ønske og Kopier Link (Øverst og centreret) -->
 <div class="button-container">
     <a th:href="@{/createWishlistItem(listID=${listID})}" class="button">Opret Ønske</a>
-    <a th:href="@{/funktion ikke lavet endny}" class="button">Del Ønskeliste</a>
+    <button onclick="copyToClipboard()" class="button">Del Ønskelisten</button>
 </div>
 
 <ul>
@@ -19,7 +19,28 @@
         <p>Description: <span th:text="${item.description}"></span></p>
         <p>Price: <span th:text="${item.price}"></span></p>
         <p>Link: <a th:href="${item.link}" th:text="${item.link}"></a></p>
+
+        <!-- Slet-knap til hvert ønsket item -->
+        <form th:action="@{/deleteWishItem}" method="post" style="display:inline;">
+            <input type="hidden" name="wishitemID" th:value="${item.wishitemID}" />
+            <input type="hidden" name="listID" th:value="${listID}" />
+            <button type="submit" class="delete-button">Slet</button>
+        </form>
     </li>
 </ul>
+
+<script>
+    // Funktion til at kopiere linket til clipboard
+    function copyToClipboard() {
+        const link = window.location.href;
+        navigator.clipboard.writeText(link)
+            .then(() => {
+                alert('Linket er kopieret til clipboard');
+            })
+            .catch(err => {
+                alert('Kunne ikke kopiere link');
+            });
+    }
+</script>
 </body>
 </html>
