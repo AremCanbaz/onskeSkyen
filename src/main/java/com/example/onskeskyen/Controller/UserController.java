@@ -25,7 +25,7 @@ public class UserController {  // Skift til stor forbogstav
     }
 
     @PostMapping("/loginSucces")
-    public String processLoginForm(@RequestParam String username, @RequestParam String password, Model model) {
+    public String processLoginForm(@RequestParam String username, @RequestParam String password) {
         UserModel user = userService.authenticateUser(username, password);
         if (user != null) {
             return "redirect:/wishlist?userId=" + user.getId();  // Omdirigér til forsiden med userId som URL-parameter

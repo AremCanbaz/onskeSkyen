@@ -57,5 +57,19 @@ public class WishItemRepository {
         }
     }
 
+    public void deleteWishItemById(long wishitemID) {
+        String sqlDeleteItem = "DELETE FROM wishlistitems WHERE wishitem_ID = ?";
+
+        try (Connection connection = DriverManager.getConnection(databaseURLM, userName, password)) {
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlDeleteItem);
+            preparedStatement.setLong(1, wishitemID);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 }

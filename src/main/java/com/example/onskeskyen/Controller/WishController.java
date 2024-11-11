@@ -44,4 +44,11 @@ public class WishController {
         return "redirect:/wishlistitems?listID=" + listID;
     }
 
+    @PostMapping("/deleteWishItem")
+    public String deleteWishItem(@RequestParam("wishitemID") long wishitemID, @RequestParam("listID") int listID) {
+        wishListItemsService.deleteWishItem(wishitemID);
+        return "redirect:/wishlistitems?listID=" + listID;
+    }
+
+
 }

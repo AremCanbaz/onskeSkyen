@@ -126,3 +126,24 @@ main p {
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
 }
+.back-button{
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: absolute; /* Gør placeringen absolut */
+    top: 10px; /* Placer den 10px fra toppen */
+    left: 10px; /* Placer den 10px fra venstre */
+    text-decoration: none; /* Fjern understregning */
+    display: inline-block;
+    margin-top: 10px;
+}
+.back-button:hover {
+    background-color: #ff0000;
+    transform: translateY(-3px);
+}

@@ -63,3 +63,26 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+.back-button {
+    background-color: #007BFF;
+    color: #ffffff; /* Tilføj farve for at sikre, at teksten er hvid */
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: absolute; /* Gør placeringen absolut */
+    top: 10px; /* Placer den 10px fra toppen */
+    left: 10px; /* Placer den 10px fra venstre */
+    text-decoration: none; /* Fjern understregning */
+    display: inline-block;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+
