@@ -44,93 +44,54 @@ h1 {
     box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
 }
 
-/* Form Container */
-form {
-    max-width: 600px;
-    margin: 30px auto;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Label Styling */
-form label {
-    display: block;
-    font-size: 1em;
-    color: #555;
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-/* Input and Textarea Styling */
-form input[type="text"],
-form input[type="number"],
-form input[type="url"],
-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 8px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 1em;
-    color: #333;
-    transition: border-color 0.3s ease;
-}
-
-form input[type="text"]:focus,
-form input[type="number"]:focus,
-form input[type="url"]:focus,
-form textarea:focus {
-    border-color: #007BFF;
-    outline: none;
-}
-
-/* Textarea Styling */
-form textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-/* Submit Button Styling */
-form button[type="submit"] {
-    width: 100%;
-    padding: 12px;
-    background-color: #007BFF;
-    color: #fff;
-    font-size: 1em;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
-}
-
-form button[type="submit"]:hover {
-    background-color: #0056b3;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
-}
-
-
-/* List Item Styling */
+/* List Container */
 ul {
     list-style-type: none;
     padding: 0;
-    max-width: 600px;
+    max-width: 1200px;
     margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
+/* List Items Styling */
 li {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
-    margin-bottom: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    flex: 1 1 calc(25% - 30px); /* Fire kolonner med mellemrumshåndtering */
+    box-sizing: border-box;
+}
+/* Hover Effekt for Wish Items */
+li:hover {
+    transform: translateY(-3px); /* Løfter boksen lidt op */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Gør skyggen mere fremtrædende */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Overgangseffekt */
+    cursor: pointer; /* Ændrer musemarkøren til pegepilen */
+}
+
+
+/* Delete Button Styling */
+.delete-button {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.delete-button:hover {
+    background-color: #ff1a1a;
+    transform: translateY(-3px);
 }
 .back-button{
     background-color: #007BFF;

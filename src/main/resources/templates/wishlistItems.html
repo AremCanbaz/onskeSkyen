@@ -2,10 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Wishlist Items</title>
-    <link rel="stylesheet" th:href="@{/index.css}">
+    <link rel="stylesheet" th:href="@{/wishList.css}">
 </head>
 <body>
-<h1>Items in Wishlist <span th:text="${listID}"></span></h1>
+<a href="javascript:history.back()" class="back-button">Tilbage</a>
+
+<h1>Ønskeliste <span th:text="${listID}"></span></h1>
 
 <!-- Opret Ønske og Kopier Link (Øverst og centreret) -->
 <div class="button-container">
@@ -15,13 +17,13 @@
 
 <ul>
     <li th:each="item : ${wishListItems}">
-        <p>Name: <span th:text="${item.name}"></span></p>
-        <p>Description: <span th:text="${item.description}"></span></p>
-        <p>Price: <span th:text="${item.price}"></span></p>
+        <p>Navn: <span th:text="${item.name}"></span></p>
+        <p>Beskrivelse: <span th:text="${item.description}"></span></p>
+        <p>Pris: <span th:text="${item.price}"></span>,- DKK </p>
         <p>Link: <a th:href="${item.link}" th:text="${item.link}"></a></p>
 
         <!-- Slet-knap til hvert ønsket item -->
-        <form th:action="@{/deleteWishItem}" method="post" style="display:inline;">
+        <form th:action="@{/deleteWishItem}" method="post">
             <input type="hidden" name="wishitemID" th:value="${item.wishitemID}" />
             <input type="hidden" name="listID" th:value="${listID}" />
             <button type="submit" class="delete-button">Slet</button>
