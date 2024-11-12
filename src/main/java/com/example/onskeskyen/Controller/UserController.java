@@ -19,6 +19,7 @@ public class UserController {  // Skift til stor forbogstav
     public String showlogin() {
     return "login";
     }
+
     @GetMapping("/login")
     public String showLoginForm() {
         return "login";
