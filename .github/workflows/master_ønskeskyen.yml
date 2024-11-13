@@ -56,9 +56,7 @@ jobs:
         with:
           app-name: 'ØnskeSkyen'
           slot-name: 'Production'
-          package: 'target/*.jar'
-          deploy-to-slot: true
-        deployment-method: 'zip'
+          package: 'zip'
 
       - name: Set environment variables for the web app
         run: |
