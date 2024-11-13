@@ -56,15 +56,17 @@ jobs:
         with:
           app-name: 'ØnskeSkyen'
           slot-name: 'Production'
-          package: '*.jar'
+          package: 'target/*.jar'
+          deploy-to-slot: true
+        deployment-method: 'zip'
 
       - name: Set environment variables for the web app
         run: |
-          echo "DB_HOST=${{ secrets.PROD_URL }}" >> $GITHUB_ENV
-          echo "DB_USER=${{ secrets.PROD_USERNAME }}" >> $GITHUB_ENV
-          echo "DB_PASSWORD=${{ secrets.PROD_PASSWORD }}" >> $GITHUB_ENV
+          echo "PROD_URL=${{ secrets.PROD_URL }}" >> $GITHUB_ENV
+          echo "PROD_USERNAME=${{ secrets.PROD_USERNAME }}" >> $GITHUB_ENV
+          echo "PROD_PASSWORD=${{ secrets.PROD_PASSWORD }}" >> $GITHUB_ENV
         env:
-          DB_HOST: ${{ secrets.PROD_URL }}
-          DB_USER: ${{ secrets.PROD_USERNAME }}
-          DB_PASSWORD: ${{ secrets.PROD_PASSWORD }}
+          PROD_URL: ${{ secrets.PROD_URL }}
+          PROD_USERNAME: ${{ secrets.PROD_USERNAME }}
+          PROD_PASSWORD: ${{ secrets.PROD_PASSWORD }}
 
