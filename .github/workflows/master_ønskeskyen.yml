@@ -56,7 +56,7 @@ jobs:
         with:
           app-name: 'ØnskeSkyen'
           slot-name: 'Production'
-          package: 'zip'
+          package: '*.jar'
 
       - name: Set environment variables for the web app
         run: |
