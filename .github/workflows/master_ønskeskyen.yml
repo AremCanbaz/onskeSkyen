@@ -22,11 +22,18 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
 
+      - name: Zip JAR file
+        run: |
+          mkdir deploy
+          cp target/*.jar deploy/
+          cd deploy
+          zip -r app.zip ./
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          path: 'deploy/app.zip'
 
   deploy:
     runs-on: ubuntu-latest
@@ -35,7 +42,7 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write #This is required for requesting the JWT
+      id-token: write # This is required for requesting the JWT
 
     steps:
       - name: Download artifact from build job
@@ -56,7 +63,7 @@ jobs:
         with:
           app-name: 'ØnskeSkyen'
           slot-name: 'Production'
-          package: '*.jar'
+          package: 'deploy/app.zip'  # Path to the zipped file
 
       - name: Set environment variables for the web app
         run: |
@@ -67,4 +74,3 @@ jobs:
           PROD_URL: ${{ secrets.PROD_URL }}
           PROD_USERNAME: ${{ secrets.PROD_USERNAME }}
           PROD_PASSWORD: ${{ secrets.PROD_PASSWORD }}
-
