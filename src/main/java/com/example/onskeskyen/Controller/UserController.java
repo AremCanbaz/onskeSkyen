@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 public class UserController {  // Skift til stor forbogstav
 
     @Autowired
+
     private UserService userService;  // Autowire UserService
     @GetMapping()
     public String showlogin() {

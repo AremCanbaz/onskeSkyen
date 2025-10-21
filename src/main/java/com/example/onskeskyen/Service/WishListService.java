@@ -1,6 +1,5 @@
 package com.example.onskeskyen.Service;
 
-import com.example.onskeskyen.Model.WishItemModel;
 import com.example.onskeskyen.Model.WishListModel;
 import com.example.onskeskyen.Repository.WishItemRepository;
 import com.example.onskeskyen.Repository.WishListRepository;
